@@ -22,3 +22,34 @@ public void backtrack(路径, 选择列表) {
 }
 ```
 
+### 三、BFS 广度优先搜索
+
+- 模板
+
+```java
+int bfs(Node start, Node target) {
+  Queue<TreeNode> queue = new LinkedList<>();
+  Set<TreeNode> visited = new HashSet<>();
+  queue.offer(start);
+  visited.add(start);
+  int step = 0;
+
+  while (!queue.isEmpty()) {
+    int len = queue.size();
+    for (int i=0; i<len; i++) {
+      Node node = queue.poll();
+      if (target.equals(node)) {
+        return step;
+      }
+      for (Node n : curr.adj()) {
+        if (visited.contains(n)) {
+          queue.offer(n);
+          visited.add(n);
+        }
+      }
+    }
+    step ++;
+  }
+
+  return step;
+```
