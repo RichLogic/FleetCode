@@ -22,6 +22,17 @@ private void recursion(int start, int end) {
 }
 ```
 
+- 递归的秘诀
+```java
+public int count(TreeNode root) {
+    if (root == null) {
+        return 0;
+    }
+    return count(root.left) + count(root.right) + 1;
+}
+```
+
+
 ### 二、回溯算法
 
 - 模板
